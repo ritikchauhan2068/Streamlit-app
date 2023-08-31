@@ -111,8 +111,8 @@ def overall():
     st.write(px.bar(df,y='FastCharge_KmH',x='FullName',width=1000))
     st.subheader('Tree map')
     try:
-    fig=px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200)
-    st.plotly_chart(fig)
+    st.plotly_chart(px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200)
+    
     except Exception as e:
     print('Graph is not shown by this website')
   
@@ -381,8 +381,7 @@ def treeMap():
     st.header('Graph:-\t')
 
     try:
-    fig=px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200)
-    st.plotly_chart(fig)
+     st.plotly_chart(px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200)
     except Exception as e:
     print('Graph is not shown by this website')
 
