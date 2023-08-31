@@ -113,7 +113,7 @@ def overall():
     try:
         st.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
     except Exception as e:
-        st.error(f"An error occurred: Graph is not shown by the streamlit 😢")
+        st.error(f"Tree Graph is not shown by the streamlit 😢")
         # print('Graph is not shown by the streamlit 😢')
     st.header('Conclusion')
     st.write('''1-Range of vehicle is proportional to Battery Pack Capacity
@@ -379,8 +379,8 @@ def treeMap():
     st.header('Graph:-\t')
     try:
         t.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
-    except:
-        print('Graph is not shown by streamlit 😢')
+   except Exception as e:
+        st.error(f"Tree Graph is not shown by the streamlit 😢")
     st.subheader('Conclusion')
     st.write('''
 
