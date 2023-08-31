@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 # Set the page title and favicon (optional)
 st.set_page_config(
     page_title="Dashboard",
-page_icon=":dashboard.png:",
+
 )
 
 
@@ -109,11 +109,13 @@ def overall():
     st.write(px.bar(df,y='AccelSec',x='FullName',width=1000))
     st.subheader('FastCharging')
     st.write(px.bar(df,y='FastCharge_KmH',x='FullName',width=1000))
-    st.subheader('Brand Tree map')
+    st.subheader('Tree map')
+    try:
     fig = px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200)
-
-    # Display the Plotly figure in Streamlit
     st.plotly_chart(fig)
+    except Exception as e:
+    print('Graph is not shown by this website')
+  
     st.header('Conclusion')
     st.write('''1-Range of vehicle is proportional to Battery Pack Capacity
 
@@ -370,6 +372,7 @@ def fastCharging():
 
 
 def treeMap():
+    
     st.title('About Brand')
     st.header('About graph:-')
     st.write('''The treemap shows a hierarchical structure starting with 'Brand' as the top-level categories. Each 'Brand' contains 'Model' subcategories, and within each 'Model,' there are further subdivisions based on 'Range_Km.' This allows we to see how electric cars are categorized based on these attributes.
@@ -377,11 +380,11 @@ def treeMap():
 
     st.header('Graph:-\t')
 
-    # Create the Plotly treemap figure
+    try:
     fig = px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200)
-
-    # Display the Plotly figure in Streamlit
     st.plotly_chart(fig)
+    except Exception as e:
+    print('Graph is not shown by this website')
 
     st.subheader('Conclusion')
     st.write('''
