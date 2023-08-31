@@ -8,7 +8,7 @@ import plotly.graph_objects as go
 # Set the page title and favicon (optional)
 st.set_page_config(
     page_title="Dashboard",
-
+page_icon=":dashboard.png:",
 )
 
 
@@ -109,13 +109,8 @@ def overall():
     st.write(px.bar(df,y='AccelSec',x='FullName',width=1000))
     st.subheader('FastCharging')
     st.write(px.bar(df,y='FastCharge_KmH',x='FullName',width=1000))
-    st.subheader('Tree map')
-    try:
-    st.write(px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200)
-    
-    except Exception as e:
-    print('Graph is not shown by this website')
-  
+    st.subheader('Brand Tree map')
+    st.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
     st.header('Conclusion')
     st.write('''1-Range of vehicle is proportional to Battery Pack Capacity
 
@@ -372,19 +367,13 @@ def fastCharging():
 
 
 def treeMap():
-    
     st.title('About Brand')
     st.header('About graph:-')
     st.write('''The treemap shows a hierarchical structure starting with 'Brand' as the top-level categories. Each 'Brand' contains 'Model' subcategories, and within each 'Model,' there are further subdivisions based on 'Range_Km.' This allows we to see how electric cars are categorized based on these attributes.
    ''')
 
     st.header('Graph:-\t')
-
-    try:
-     st.plotly_chart(px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200)
-    except Exception as e:
-    print('Graph is not shown by this website')
-
+    st.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
     st.subheader('Conclusion')
     st.write('''
 
@@ -392,6 +381,8 @@ def treeMap():
                             2-The size of the rectangles can indicate the number of electric cars within each brand and model. Larger rectangles represent a higher number of cars. we can see which brands and models have a more extensive variety of offerings.\n
                             3-: The color of each rectangle represents the price of electric cars in Euros. This allows we to visualize how prices vary across different brands, models, and ranges.
                             ''')
+
+
 
 
 st.sidebar.title('Dashboard')
