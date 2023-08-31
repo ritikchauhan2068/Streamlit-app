@@ -379,7 +379,7 @@ def treeMap():
     st.header('Graph:-\t')
     try:
         t.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
-   except Exception as e:
+    except Exception as e:
         st.error(f"Tree Graph is not shown by the streamlit 😢")
     st.subheader('Conclusion')
     st.write('''
