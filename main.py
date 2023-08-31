@@ -110,7 +110,10 @@ def overall():
     st.subheader('FastCharging')
     st.write(px.bar(df,y='FastCharge_KmH',x='FullName',width=1000))
     st.subheader('Brand Tree map')
-    st.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
+    try:
+        st.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
+    except:
+        print('Graph is not shown by the streamlit 😢')
     st.header('Conclusion')
     st.write('''1-Range of vehicle is proportional to Battery Pack Capacity
 
@@ -373,7 +376,10 @@ def treeMap():
    ''')
 
     st.header('Graph:-\t')
-    st.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
+    try:
+        t.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
+    except:
+        print('Graph is not shown by streamlit 😢')
     st.subheader('Conclusion')
     st.write('''
 
