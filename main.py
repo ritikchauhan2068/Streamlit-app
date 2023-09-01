@@ -110,10 +110,10 @@ def overall():
     st.subheader('FastCharging')
     st.write(px.bar(df,y='FastCharge_KmH',x='FullName',width=1000))
     st.subheader('Brand Tree map')
-  # try:
-  #   st.write(px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200))
-  # except Exception as e:
-  #   st.error(f"Tree Graph is not shown by the streamlit 😢")
+  try:
+    st.write(px.treemap(df, path=['Brand', 'Model', 'Range_Km'], color='PriceEuro', width=1200))
+  except Exception as e:
+    st.error(f"Tree Graph is not shown by the streamlit 😢")
 
         
     st.header('Conclusion')
@@ -371,24 +371,24 @@ def fastCharging():
                         ''')
 
 
-# def treeMap():
-#     st.title('About Brand')
-#     st.header('About graph:-')
-#     st.write('''The treemap shows a hierarchical structure starting with 'Brand' as the top-level categories. Each 'Brand' contains 'Model' subcategories, and within each 'Model,' there are further subdivisions based on 'Range_Km.' This allows we to see how electric cars are categorized based on these attributes.
-#    ''')
+def treeMap():
+    st.title('About Brand')
+    st.header('About graph:-')
+    st.write('''The treemap shows a hierarchical structure starting with 'Brand' as the top-level categories. Each 'Brand' contains 'Model' subcategories, and within each 'Model,' there are further subdivisions based on 'Range_Km.' This allows we to see how electric cars are categorized based on these attributes.
+   ''')
 
-#     st.header('Graph:-\t')
-#     try:
-#         t.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
-#     except Exception as e:
-#         st.error(f"Tree Graph is not shown by the streamlit 😢")
-#     st.subheader('Conclusion')
-#     st.write('''
+    st.header('Graph:-\t')
+    try:
+        t.write(px.treemap(df, path=['Brand','Model','Range_Km'], color='PriceEuro',width=1200))
+    except Exception as e:
+        st.error(f"Tree Graph is not shown by the streamlit 😢")
+    st.subheader('Conclusion')
+    st.write('''
 
-#                             1-The treemap provides a hierarchical view of how different electric car brands are divided into models, and how each model is further divided into different ranges. we can see the composition of brands, models, and ranges within the \n
-#                             2-The size of the rectangles can indicate the number of electric cars within each brand and model. Larger rectangles represent a higher number of cars. we can see which brands and models have a more extensive variety of offerings.\n
-#                             3-: The color of each rectangle represents the price of electric cars in Euros. This allows we to visualize how prices vary across different brands, models, and ranges.
-#                             ''')
+                            1-The treemap provides a hierarchical view of how different electric car brands are divided into models, and how each model is further divided into different ranges. we can see the composition of brands, models, and ranges within the \n
+                            2-The size of the rectangles can indicate the number of electric cars within each brand and model. Larger rectangles represent a higher number of cars. we can see which brands and models have a more extensive variety of offerings.\n
+                            3-: The color of each rectangle represents the price of electric cars in Euros. This allows we to visualize how prices vary across different brands, models, and ranges.
+                            ''')
 
 
 
@@ -416,6 +416,6 @@ elif option == 'Acceleration (0-100)':
     acceleration()
 elif option == 'FastCharging':
     fastCharging()
-# elif option == 'About Brand':
-#     treeMap()
+elif option == 'About Brand':
+    treeMap()
 
